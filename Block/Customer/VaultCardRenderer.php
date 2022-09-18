@@ -15,7 +15,7 @@ use Magento\Vault\Block\AbstractCardRenderer;
 
 class VaultCardRenderer extends AbstractCardRenderer
 {
-    const CARD_MASK = 'XXXX';
+    public const CARD_MASK = 'XXXX';
 
     /**
      * @var Config

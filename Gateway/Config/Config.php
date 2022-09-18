@@ -9,13 +9,13 @@ namespace AuthorizeNet\CreditCard\Gateway\Config;
 
 class Config extends \AuthorizeNet\Core\Gateway\Config\Config
 {
-    const CODE = 'anet_creditcard';
-    const VAULT_CODE = 'anet_creditcard_vault';
+    public const CODE = 'anet_creditcard';
+    public const VAULT_CODE = 'anet_creditcard_vault';
 
-    const KEY_CC_TYPES = 'cctypes';
-    const KEY_CENTINEL_ACTIVE = 'centinel_active';
-    const KEY_REQUIRE_CVV = 'require_cvv';
-    const KEY_ADMIN_REQUIRE_CVV = 'admin_require_cvv';
+    public const KEY_CC_TYPES = 'cctypes';
+    public const KEY_CENTINEL_ACTIVE = 'centinel_active';
+    public const KEY_REQUIRE_CVV = 'require_cvv';
+    public const KEY_ADMIN_REQUIRE_CVV = 'admin_require_cvv';
 
     /**
      * Retrieve available credit card types

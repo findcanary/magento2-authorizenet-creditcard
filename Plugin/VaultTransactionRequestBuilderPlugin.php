@@ -16,7 +16,7 @@ use net\authorize\api\contract\v1 as AnetAPI;
 
 class VaultTransactionRequestBuilderPlugin
 {
-    const KEY_INFO_VAULT_CVV = 'vault_cvv';
+    public const KEY_INFO_VAULT_CVV = 'vault_cvv';
 
     /**
      * @var SubjectReader
