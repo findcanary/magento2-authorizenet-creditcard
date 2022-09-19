@@ -38,7 +38,6 @@ class ConfigProvider implements ConfigProviderInterface
                     'active' => $this->config->isActive(),
                     'title' => $this->config->getTitle(),
                     'availableCardTypes' => $this->config->getAvailableCardTypes(),
-                    'centinelActive' => $this->config->isCentinelActive(),
                     'vaultCode' => Config::VAULT_CODE,
                     'loginId' => $this->config->getLoginId(),
                     'clientKey' => $this->config->getClientKey()

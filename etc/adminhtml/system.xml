@@ -62,12 +62,6 @@
                             <field id="vault_active">1</field>
                         </depends>
                     </field>
-                    <field id="centinel_active" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="0">
-                        <label>Enable 3D Secure Card Validation</label>
-                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                        <config_path>payment/anet_creditcard/centinel_active</config_path>
-                        <tooltip>Select Yes to enable strong customer validation through Cardinal Commerce.</tooltip>
-                    </field>
                     <field id="sort_order" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Sort Order</label>
                         <config_path>payment/anet_creditcard/sort_order</config_path>

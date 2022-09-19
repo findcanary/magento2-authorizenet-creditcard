@@ -7,8 +7,7 @@ define(
         'Magento_Checkout/js/model/full-screen-loader',
         'Magento_Ui/js/modal/alert',
         'Magento_Checkout/js/action/redirect-on-success',
-        'Magento_Vault/js/view/payment/vault-enabler',
-        'AuthorizeNet_Centinel/js/centinel'
+        'Magento_Vault/js/view/payment/vault-enabler'
     ],
     function (
         Component,
@@ -18,8 +17,7 @@ define(
         fullScreenLoader,
         alert,
         redirectOnSuccessAction,
-        VaultEnabler,
-        CentinelService
+        VaultEnabler
     ) {
         'use strict';
 
@@ -34,13 +32,6 @@ define(
 
                 this.vaultEnabler = new VaultEnabler();
                 this.vaultEnabler.setPaymentCode(this.getVaultCode());
-
-                this.centinelService = new CentinelService();
-                this.centinelService.setPaymentCode(this.getCode());
-
-                if (this.centinelService.isCentinelActive()) {
-                    this.centinelService.initCca();
-                }
 
                 return this;
             },
@@ -118,21 +109,6 @@ define(
 
                 this.opaqueData = JSON.stringify(response.opaqueData);
 
-                // Centinel
-                if (this.centinelService.isCentinelActive()) {
-                    var ccData = {};
-
-                    ccData.cardNumber = this.creditCardNumber();
-                    ccData.month = this.creditCardExpMonth();
-                    ccData.year = this.creditCardExpYear();
-                    ccData.cardCode = this.creditCardVerificationNumber();
-
-                    this.centinelService.setCcData(ccData).processCca();
-                    this.addCcaValidationResultHandler();
-
-                    return;
-                }
-
                 this.placeOrder();
             },
 
@@ -168,21 +144,6 @@ define(
                     );
 
                 return true;
-            },
-
-            addCcaValidationResultHandler: function () {
-                var self = this;
-
-                $('body').on('anet.centinel.cca.validation', function (event, result) {
-                    if (!result) {
-                        fullScreenLoader.stopLoader(true);
-                        self.resetData();
-                        return;
-                    }
-                    if (self.isPlaceOrderActionAllowed()) {
-                        self.placeOrder();
-                    }
-                });
             },
 
             resetData: function () {
